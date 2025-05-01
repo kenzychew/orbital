@@ -1,4 +1,3 @@
-import React from 'react';
 import { AppProvider } from './context/AppContext';
 import { ThreeJsProvider } from './context/ThreeJsProvider';
 import Scene from './components/Scene';
@@ -24,7 +23,7 @@ function App() {
           <h1>Satellite Orbit Tracker</h1>
         </header>
       </AppProvider>
-    </div>
+      </div>
   );
 }
 

@@ -9,7 +9,7 @@ export const SCALE_FACTOR = 1 / EARTH_RADIUS;
 /**
  * Converts TLE data to a satellite.js instance
  */
-export function parseTLE(tle: { line1: string; line2: string; }): satellite.twoline2satrec {
+export function parseTLE(tle: { line1: string; line2: string; }): ReturnType<typeof satellite.twoline2satrec> {
   return satellite.twoline2satrec(tle.line1, tle.line2);
 }
 
@@ -17,10 +17,14 @@ export function parseTLE(tle: { line1: string; line2: string; }): satellite.twol
  * Calculate the position of a satellite at a given time
  * Returns position in 3D space (x, y, z) normalized to Earth radius = 1
  */
-export function calculatePosition(satrec: satellite.twoline2satrec, date: Date): SatellitePosition | null {
+export function calculatePosition(satrec: ReturnType<typeof satellite.twoline2satrec>, date: Date): SatellitePosition | null {
   try {
     // Get position in km
     const positionAndVelocity = satellite.propagate(satrec, date);
+    if (!positionAndVelocity || !positionAndVelocity.position) {
+      return null;
+    }
+    
     const gmst = satellite.gstime(date);
     const position = satellite.eciToEcf(positionAndVelocity.position, gmst);
 
