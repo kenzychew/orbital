@@ -1,54 +1,81 @@
-# React + TypeScript + Vite
+# Orbital - Satellite Orbit Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive 3D visualization tool for tracking satellites in real-time.
 
-Currently, two official plugins are available:
+## About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Orbital is a web application that lets you visualize and track satellites orbiting Earth in a beautiful 3D environment. Built with React and Three.js, it provides an intuitive interface to explore satellite positions, orbits, and detailed information.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Real-time 3D Earth visualization with accurate satellite positioning
+- Interactive camera controls for exploring the Earth from any angle
+- Detailed satellite information, including position, orbital elements, and metadata
+- Support for multiple satellite types (Space Stations, Telescopes, Weather, Communications)
+- Time controls to simulate satellite movement over time
+- Color-coded visualization for different satellite types and selection states
+- Responsive design that works on desktop and mobile devices
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Getting Started
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Prerequisites
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Node.js (v14 or newer)
+- npm or yarn
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Installation
+
+1. Clone the repository
+
+   ```
+   git clone https://github.com/kenzychew/orbital.git
+   cd orbital
+   ```
+
+2. Install dependencies
+
+   ```
+   npm install
+   ```
+
+3. Start the development server
+
+   ```
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Usage
+
+- **Select a satellite**: Click on any satellite to see its orbit highlighted and view detailed information
+- **Control the view**: Use mouse/touch to rotate, zoom, and pan the Earth view
+- **Adjust time**: Use the time controls to change the simulation time and speed
+
+## Technology Stack
+
+- **React**: UI components and state management
+- **Three.js**: 3D rendering engine (via React Three Fiber)
+- **Satellite.js**: Satellite position calculation
+- **TypeScript**: Type-safe JavaScript
+- **Vite**: Fast, modern build tool
+
+## Project Structure
+
+- `/components`: React components organized by feature
+- `/context`: React context providers for global state
+- `/models`: TypeScript interfaces and types
+- `/utils`: Helper functions and calculations
+- `/api`: Data fetching and processing
+
+## Future Plans
+
+- Ground track visualization
+- Satellite search and filtering
+- Customizable visual themes
+- Satellite launch and decay predictions
+- Multiple data sources for satellite information
+
+---
+
+_Built with 🚀 by yours truly_
